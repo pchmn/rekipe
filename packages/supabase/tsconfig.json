@@ -1,0 +1,5 @@
+{
+  "extends": "@rr7-supabase-starter/tsconfig/base.json",
+  "include": ["src"],
+  "exclude": ["node_modules"]
+}
