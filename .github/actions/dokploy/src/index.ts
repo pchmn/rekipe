@@ -26,6 +26,7 @@ client.setConfig({
   headers: {
     Authorization: `Bearer ${config.dokployToken}`,
   },
+  throwOnError: true,
 });
 
 async function main() {

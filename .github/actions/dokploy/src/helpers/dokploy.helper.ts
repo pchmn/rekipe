@@ -34,18 +34,14 @@ export async function getOrCreateApplication({
   }
 
   core.info(`Creating application ${applicationName}...`);
-  const { data: application, error: applicationCreateError } = await applicationCreate({
+  const { data: application } = await applicationCreate({
     body: {
       projectId,
       name: applicationName,
       appName: applicationName,
     },
   });
-  if (applicationCreateError) {
-    core.error(applicationCreateError.message);
-    throw new Error(applicationCreateError.message);
-  }
-  
+
   if (application) {
     const domain =
       applicationDomain ||
@@ -77,14 +73,9 @@ export async function getApplication({
   projectId: string;
 }) {
   if (applicationId) {
-    const { data: application, error } = await applicationOne({
+    const { data: application } = await applicationOne({
       query: { applicationId },
     });
-
-    if (error) {
-      core.error(error.message);
-      throw new Error(error.message);
-    }
 
     if (application) {
       core.info(`Application ${applicationName} found`);
