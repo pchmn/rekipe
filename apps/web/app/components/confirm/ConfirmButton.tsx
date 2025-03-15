@@ -1,4 +1,4 @@
-import { Button, type ButtonProps } from '@rr7-supabase-starter/ui/button';
+import { Button, type ButtonProps } from '@rekipe/ui/button';
 import { useState } from 'react';
 import { ConfirmModal, type ConfirmModalProps } from './ConfirmModal';
 

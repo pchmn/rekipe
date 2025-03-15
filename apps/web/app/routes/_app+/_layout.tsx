@@ -1,4 +1,4 @@
-import { Button } from '@rr7-supabase-starter/ui/button';
+import { Button } from '@rekipe/ui/button';
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -10,9 +10,9 @@ import {
   DropdownMenuSubContent,
   DropdownMenuSubTrigger,
   DropdownMenuTrigger,
-} from '@rr7-supabase-starter/ui/dropdown-menu';
-import { Flex } from '@rr7-supabase-starter/ui/flex';
-import { cn } from '@rr7-supabase-starter/ui/utils';
+} from '@rekipe/ui/dropdown-menu';
+import { Flex } from '@rekipe/ui/flex';
+import { cn } from '@rekipe/ui/utils';
 import {
   CheckIcon,
   LanguagesIcon,
@@ -53,11 +53,11 @@ export default function Layout({ loaderData }: Route.ComponentProps) {
           <Flex align='center'>
             <img
               src='/images/logo.png'
-              alt='rr7-supabase-starter-logo'
+              alt='rekipe-logo'
               className='h-[30px] w-[30px]'
             />
             <span className='ml-2 font-["Work Sans"] text-[16px] font-bold text-foreground'>
-              rr7-supabase-starter
+              rekipe
             </span>
           </Flex>
         </Link>

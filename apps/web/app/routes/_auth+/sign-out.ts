@@ -1,4 +1,4 @@
-import { signOut } from '@rr7-supabase-starter/supabase/auth.server';
+import { signOut } from '@rekipe/supabase/auth.server';
 import { type ActionFunctionArgs, data, redirect } from 'react-router';
 
 export async function action({ request }: ActionFunctionArgs) {

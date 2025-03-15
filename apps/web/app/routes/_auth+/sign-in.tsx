@@ -1,6 +1,6 @@
-import { useSupabase } from '@rr7-supabase-starter/supabase/react';
-import { Button } from '@rr7-supabase-starter/ui/button';
-import { Flex } from '@rr7-supabase-starter/ui/flex';
+import { useSupabase } from '@rekipe/supabase/react';
+import { Button } from '@rekipe/ui/button';
+import { Flex } from '@rekipe/ui/flex';
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router';
 import { remixI18next } from '~/i18n/i18n.server';
@@ -55,11 +55,11 @@ export default function SignIn() {
         <Flex align='center' className='sm:px-8 px-4 sm:mt-6 mt-4 h-8'>
           <img
             src='/images/logo.png'
-            alt='rr7-supabase-starter-logo'
+            alt='rekipe-logo'
             className='h-[30px] w-[30px]'
           />
           <span className='ml-2 font-["Work Sans"] text-[16px] font-bold text-foreground'>
-            rr7-supabase-starter
+            rekipe
           </span>
         </Flex>
       </Link>

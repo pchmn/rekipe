@@ -1,4 +1,4 @@
-import type { Database } from '@rr7-supabase-starter/supabase/types';
+import type { Database } from '@rekipe/supabase/types';
 import {
   createServerClient,
   parseCookieHeader,

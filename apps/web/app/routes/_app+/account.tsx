@@ -1,13 +1,13 @@
-import { deleteCurrentUser } from '@rr7-supabase-starter/supabase/auth.server';
-import { Button } from '@rr7-supabase-starter/ui/button';
+import { deleteCurrentUser } from '@rekipe/supabase/auth.server';
+import { Button } from '@rekipe/ui/button';
 import {
   Card,
   CardContent,
   CardDescription,
   CardHeader,
   CardTitle,
-} from '@rr7-supabase-starter/ui/card';
-import { Flex } from '@rr7-supabase-starter/ui/flex';
+} from '@rekipe/ui/card';
+import { Flex } from '@rekipe/ui/flex';
 import {
   Select,
   SelectContent,
@@ -15,7 +15,7 @@ import {
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from '@rr7-supabase-starter/ui/select';
+} from '@rekipe/ui/select';
 import { LogOutIcon } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import { redirect, useFetcher } from 'react-router';

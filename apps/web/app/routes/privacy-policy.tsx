@@ -8,7 +8,7 @@ export default function PrivacyPolicy() {
 
       <div className='space-y-6'>
         <p>
-          At rr7-supabase-starter, we are committed to protecting your privacy.
+          At rekipe, we are committed to protecting your privacy.
           This policy explains how we collect, use, and protect your personal
           data.
         </p>
@@ -153,12 +153,12 @@ export default function PrivacyPolicy() {
           <p>
             For privacy-related questions, contact us at:
             <br />
-            Email: rr7-supabase-starter.dev@gmail.com
+            Email: rekipe.dev@gmail.com
           </p>
         </div>
 
         <p>
-          By using rr7-supabase-starter, you consent to this privacy policy. If
+          By using rekipe, you consent to this privacy policy. If
           you do not agree with this policy, please do not use our application.
         </p>
       </div>

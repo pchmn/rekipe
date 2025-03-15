@@ -66,7 +66,7 @@ jobs:
           # Docker build
           context: .
           file: ./apps/web/.docker/Dockerfile
-          tags: pchmn/rr7-supabase-starter-web:${{ steps.get_version.outputs.APP_VERSION }}
+          tags: pchmn/rekipe-web:${{ steps.get_version.outputs.APP_VERSION }}
           build-args: |
             APP_VERSION=${{ steps.get_version.outputs.APP_VERSION }}
             APP_VERSION_DATE=${{ steps.get_version.outputs.APP_VERSION_DATE }}
@@ -91,9 +91,9 @@ jobs:
           comment-pr: true
           dokploy-base-url: ${{ secrets.DOKPLOY_BASE_URL }}
           dokploy-token: ${{ secrets.DOKPLOY_TOKEN }}
-          project-id: 0_G71Uh8nHwvaHXw0eqew
+          project-id: VLGJRVnYYHgu9JerUpR7C
           application-name: pr-${{ github.event.number }}
-          docker-image: pchmn/rr7-supabase-starter-web:${{ needs.build-web.outputs.app_version }}
+          docker-image: pchmn/rekipe-web:${{ needs.build-web.outputs.app_version }}
           docker-username: ${{ secrets.DOCKER_USERNAME }}
           docker-password: ${{ secrets.DOCKER_PASSWORD }}
           docker-port: 8080
@@ -102,4 +102,4 @@ jobs:
             SUPABASE_ANON_KEY=${{ secrets.PREVIEW_SUPABASE_ANON_KEY }}
             SUPABASE_SERVICE_ROLE_KEY=${{ secrets.PREVIEW_SUPABASE_SERVICE_ROLE_KEY }}
             SESSION_SECRET=${{ secrets.PREVIEW_SESSION_SECRET }}
-            SITE_URL=https://rr7-supabase-starter-pr-${{ github.event.number }}.46-202-134-59.sslip.io
+            SITE_URL=https://rekipe-pr-${{ github.event.number }}.46-202-134-59.sslip.io

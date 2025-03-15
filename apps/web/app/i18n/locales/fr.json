@@ -37,10 +37,10 @@
   "auth": {
     "signIn": {
       "meta": {
-        "title": " Se connecter • rr7-supabase-starter",
-        "description": "Se connecter à rr7-supabase-starter"
+        "title": " Se connecter • rekipe",
+        "description": "Se connecter à rekipe"
       },
-      "title": "Se connecter à rr7-supabase-starter",
+      "title": "Se connecter à rekipe",
       "subtitle": "Gardez une trace de vos connaissances",
       "signInWithGoogle": "Continuer avec Google",
       "acceptTermsAndConditions": "En continuant, vous confirmez avoir lu et accepté nos",
@@ -54,8 +54,8 @@
     "title": "Mon compte",
     "signOut": "Se déconnecter",
     "meta": {
-      "title": "Mon compte • rr7-supabase-starter",
-      "description": "Gérer mon compte rr7-supabase-starter"
+      "title": "Mon compte • rekipe",
+      "description": "Gérer mon compte rekipe"
     },
     "language": {
       "title": "Langue",

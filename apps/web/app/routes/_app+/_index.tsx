@@ -1,14 +1,14 @@
-import { Button } from '@rr7-supabase-starter/ui/button';
-import { Card, CardContent } from '@rr7-supabase-starter/ui/card';
-import { Flex } from '@rr7-supabase-starter/ui/flex';
+import { Button } from '@rekipe/ui/button';
+import { Card, CardContent } from '@rekipe/ui/card';
+import { Flex } from '@rekipe/ui/flex';
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router';
 import { useCurrentUser } from '~/modules/auth/useCurrentUser';
 
 export function meta() {
   return [
-    { title: 'rr7-supabase-starter' },
-    { name: 'description', content: 'Welcome to rr7-supabase-starter!' },
+    { title: 'rekipe' },
+    { name: 'description', content: 'Welcome to rekipe!' },
   ];
 }
 

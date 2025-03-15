@@ -1,4 +1,4 @@
-import { Button } from '@rr7-supabase-starter/ui/button';
+import { Button } from '@rekipe/ui/button';
 import {
   Dialog,
   DialogContent,
@@ -6,7 +6,7 @@ import {
   DialogFooter,
   DialogHeader,
   DialogTitle,
-} from '@rr7-supabase-starter/ui/dialog';
+} from '@rekipe/ui/dialog';
 import { useTranslation } from 'react-i18next';
 
 export interface ConfirmModalProps {

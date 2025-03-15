@@ -1,4 +1,4 @@
-import { verifyOauthCode } from '@rr7-supabase-starter/supabase/auth.server';
+import { verifyOauthCode } from '@rekipe/supabase/auth.server';
 import { redirect } from 'react-router';
 import { redirectWithToast } from '~/lib/toast/toast.server';
 import type { Route } from './+types/oauth.callback';

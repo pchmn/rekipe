@@ -1,13 +1,13 @@
 {
-  "name": "rr7-supabase-starter",
-  "version": "0.4.0",
+  "name": "rekipe",
+  "version": "0.0.0",
   "private": true,
   "author": "pchmn",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/pchmn/rr7-supabase-starter.git"
+    "url": "git+https://github.com/pchmn/rekipe.git"
   },
-  "homepage": "https://github.com/pchmn/rr7-supabase-starter",
+  "homepage": "https://github.com/pchmn/rekipe",
   "license": "MIT",
   "type": "module",
   "scripts": {

@@ -10,7 +10,7 @@ if (!newProjectName) {
   process.exit(1);
 }
 
-const oldProjectName = 'rr7-supabase-starter';
+const oldProjectName = 'rekipe';
 
 const packgesJsonPath = [
   'package.json',

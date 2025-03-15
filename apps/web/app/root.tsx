@@ -9,10 +9,10 @@ import {
   useLoaderData,
 } from 'react-router';
 
-import '@rr7-supabase-starter/ui/style.css';
+import '@rekipe/ui/style.css';
 import './app.css';
 
-import { Toaster } from '@rr7-supabase-starter/ui/toaster';
+import { Toaster } from '@rekipe/ui/toaster';
 import { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useChangeLanguage } from 'remix-i18next/react';

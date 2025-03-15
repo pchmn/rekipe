@@ -1,6 +1,8 @@
 {
-  "name": "@rr7-supabase-starter/tsconfig",
+  "name": "@rekipe/tsconfig",
   "private": true,
-  "version": "0.4.0",
-  "files": ["base.json"]
+  "version": "0.0.0",
+  "files": [
+    "base.json"
+  ]
 }

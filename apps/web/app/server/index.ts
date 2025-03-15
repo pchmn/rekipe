@@ -1,4 +1,4 @@
-import type { Database } from '@rr7-supabase-starter/supabase/types';
+import type { Database } from '@rekipe/supabase/types';
 import type { SupabaseClient, User } from '@supabase/supabase-js';
 import { createHonoServer } from 'react-router-hono-server/node';
 import { loadEnv } from '~/lib/env/env.server';

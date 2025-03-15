@@ -22,9 +22,9 @@ COPY . /app/
 RUN --mount=type=cache,target=${PNPM_HOME} \
     pnpm install --frozen-lockfile
 RUN --mount=type=cache,target=${TURBO_CACHE_DIR} \
-    pnpm turbo build --filter=@rr7-supabase-starter/web
+    pnpm turbo build --filter=@rekipe/web
 RUN --mount=type=cache,target=${PNPM_HOME} \
-    pnpm --filter=@rr7-supabase-starter/web --prod deploy /prod --legacy
+    pnpm --filter=@rekipe/web --prod deploy /prod --legacy
 
 FROM base AS production
 WORKDIR /app

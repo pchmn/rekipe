@@ -47,10 +47,10 @@ importers:
       '@react-router/node':
         specifier: ^7.3.0
         version: 7.3.0(react-router@7.3.0(react-dom@19.0.0(react@19.0.0))(react@19.0.0))(typescript@5.7.2)
-      '@rr7-supabase-starter/supabase':
+      '@rekipe/supabase':
         specifier: workspace:*
         version: link:../../packages/supabase
-      '@rr7-supabase-starter/ui':
+      '@rekipe/ui':
         specifier: workspace:*
         version: link:../../packages/ui
       '@supabase/ssr':
@@ -114,7 +114,7 @@ importers:
       '@react-router/serve':
         specifier: ^7.3.0
         version: 7.3.0(react-router@7.3.0(react-dom@19.0.0(react@19.0.0))(react@19.0.0))(typescript@5.7.2)
-      '@rr7-supabase-starter/tsconfig':
+      '@rekipe/tsconfig':
         specifier: workspace:*
         version: link:../../packages/tsconfig
       '@tailwindcss/vite':
@@ -156,7 +156,7 @@ importers:
 
   packages/supabase:
     devDependencies:
-      '@rr7-supabase-starter/tsconfig':
+      '@rekipe/tsconfig':
         specifier: workspace:*
         version: link:../tsconfig
       '@supabase/ssr':
@@ -191,7 +191,7 @@ importers:
       '@radix-ui/react-slot':
         specifier: ^1.1.0
         version: 1.1.0(@types/react@19.0.2)(react@19.0.0)
-      '@rr7-supabase-starter/tsconfig':
+      '@rekipe/tsconfig':
         specifier: workspace:*
         version: link:../tsconfig
       '@types/node':

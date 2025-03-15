@@ -10,7 +10,7 @@ export default function TermsAndConditions() {
 
       <div className='space-y-6'>
         <p>
-          Welcome to rr7-supabase-starter. By accessing or using our
+          Welcome to rekipe. By accessing or using our
           application, you agree to be bound by these terms and conditions.
         </p>
 
@@ -21,11 +21,11 @@ export default function TermsAndConditions() {
           <p>
             <ul className='list-disc pl-6 mt-2 space-y-1'>
               <li>
-                "rr7-supabase-starter," "we," "us," and "our" refer to
-                rr7-supabase-starter and its operators
+                "rekipe," "we," "us," and "our" refer to
+                rekipe and its operators
               </li>
               <li>
-                "Service" refers to the rr7-supabase-starter application and
+                "Service" refers to the rekipe application and
                 website
               </li>
               <li>
@@ -76,11 +76,11 @@ export default function TermsAndConditions() {
           <p>
             <ul className='list-disc pl-6 mt-2 space-y-1'>
               <li>
-                rr7-supabase-starter's content and features are protected by
+                rekipe's content and features are protected by
                 intellectual property laws
               </li>
               <li>Wikipedia content is subject to Wikipedia's license terms</li>
-              <li>AI-generated questions are owned by rr7-supabase-starter</li>
+              <li>AI-generated questions are owned by rekipe</li>
               <li>Your answers and contributions remain your property</li>
             </ul>
           </p>
@@ -178,7 +178,7 @@ export default function TermsAndConditions() {
             <Link to='/privacy-policy' className='text-primary'>
               Privacy Policy
             </Link>{' '}
-            is part of these terms. Using rr7-supabase-starter means you also
+            is part of these terms. Using rekipe means you also
             accept our privacy practices.
           </p>
         </div>
@@ -190,12 +190,12 @@ export default function TermsAndConditions() {
           <p>
             For questions about these terms, contact us at:
             <br />
-            Email: rr7-supabase-starter.dev@gmail.com
+            Email: rekipe.dev@gmail.com
           </p>
         </div>
 
         <p>
-          By using rr7-supabase-starter, you agree to these terms. If you do not
+          By using rekipe, you agree to these terms. If you do not
           agree, please do not use the application.
         </p>
       </div>
