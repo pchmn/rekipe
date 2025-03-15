@@ -24,7 +24,7 @@ if (config.githubToken) {
 client.setConfig({
   baseUrl: `${config.dokployBaseUrl}/api`,
   headers: {
-    Authorization: `Bearer ${config.dokployToken}`,
+    'x-api-key': `${config.dokployToken}`,
   },
   throwOnError: true,
 });
