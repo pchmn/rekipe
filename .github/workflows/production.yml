@@ -94,7 +94,7 @@ jobs:
           dokploy-token: ${{ secrets.DOKPLOY_TOKEN }}
           project-id: VLGJRVnYYHgu9JerUpR7C
           application-name: Production
-          application-domain: rekipe.pchmn.dev
+          application-domain: rekipe.com
           docker-image: pchmn/rekipe-web:${{ needs.build-web.outputs.app_version }}
           docker-username: ${{ secrets.DOCKER_USERNAME }}
           docker-password: ${{ secrets.DOCKER_PASSWORD }}

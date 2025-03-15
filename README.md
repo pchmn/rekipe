@@ -53,7 +53,9 @@ Once this template cloned, there is a task list in order to start fresh and with
   - [x] `PRODUCTION_SUPABASE_URL`: URL for production Supabase instance
   - [x] `SUPABASE_ACCESS_TOKEN`: Access token for Supabase API
 - [x] 6. Create a Google project and configure OAuth 2.0 credentials for the web app and connect it to your `Supabase` projects
+  - [x] Set `GOOGLE_CLIENT_ID` and `GOOGLE_SECRET` in `.env` so you can use google oauth locally
 - [x] 7. Enable anonymous sign-ins in your `Supabase` projects
+- [x] 8. Set "Read and write permissions" on Workflow permissions on your GitHub repository (settings -> actions -> general -> Workflow permissions), it is necessary for creating releases
 
 You should be good to go with a fresh new project!
 
