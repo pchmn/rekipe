@@ -52,11 +52,11 @@ export default function SignIn() {
   return (
     <Flex direction='col' className='h-full max-w-[1300px] m-auto pb-8'>
       <Link to='/'>
-        <Flex align='center' className='sm:px-8 px-4 sm:mt-6 mt-4 h-8'>
+        <Flex align='center' className='sm:px-8 px-4 sm:mt-6 mt-4 h-10'>
           <img
             src='/images/logo.png'
             alt='rekipe-logo'
-            className='h-[30px] w-[30px]'
+            className='h-[40px] w-[40px]'
           />
           <span className='ml-2 font-["Work Sans"] text-[16px] font-bold text-foreground'>
             rekipe
