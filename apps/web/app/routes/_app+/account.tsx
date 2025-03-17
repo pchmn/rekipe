@@ -169,16 +169,6 @@ export default function Account({ loaderData }: Route.ComponentProps) {
                   </SelectGroup>
                 </SelectContent>
               </Select>
-
-              <Flex direction='row' gap='sm'>
-              <Button>Contained</Button>
-              <Button variant='outline'>Outline</Button>
-              <Button variant='ghost'>Ghost</Button>
-              <Button variant='link'>Link</Button>
-              <Button variant='secondary'>Secondary</Button>
-              <Button variant='destructive'>Destructive</Button>
-              </Flex>
-              
             </CardContent>
           </Card>
           <Card className='border-destructive/50'>

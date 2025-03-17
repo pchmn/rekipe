@@ -132,7 +132,7 @@ function ThemeDropdown() {
   return (
     <DropdownMenuSub>
       <DropdownMenuSubTrigger>
-        <PaletteIcon className='mr-1.5 h-4 w-4 opacity-50' />{' '}
+        <PaletteIcon className='mr-1.5 h-4 w-4 opacity-50' />
         {t('header.theme.title')}
       </DropdownMenuSubTrigger>
       <DropdownMenuPortal>
