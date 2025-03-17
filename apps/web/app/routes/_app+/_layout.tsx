@@ -54,7 +54,7 @@ export default function Layout({ loaderData }: Route.ComponentProps) {
             <img
               src='/images/logo.png'
               alt='rekipe-logo'
-              className='h-[30px] w-[30px]'
+              className='h-[40px] w-[40px]'
             />
             <span className='ml-2 font-["Work Sans"] text-[16px] font-bold text-foreground'>
               rekipe
