@@ -54,6 +54,10 @@ export function RecipeDisplay({ recipe }: RecipeDisplayProps) {
               {recipe.servingSize}
             </div>
           </div>
+
+          <div className='bg-muted p-4 rounded-lg'>
+            <p>{recipe.changes}</p>
+          </div>
         </CardHeader>
         <CardContent>
           <div className='grid md:grid-cols-2 gap-6'>
