@@ -25,6 +25,8 @@ export const recipeSchema = z.object({
   recipe: z.string().describe('The recipe'),
 });
 
+export type Recipe = z.infer<typeof recipeSchema>;
+
 export async function action({ request }: ActionFunctionArgs) {
   const prompt = await request.json();
   // const prompt = formData.get('prompt');
@@ -42,7 +44,7 @@ export async function action({ request }: ActionFunctionArgs) {
           '3. Cooking time and difficulty level\n' +
           '4. Serving size\n' +
           '5. Any relevant tips or variations\n\n' +
-          'Keep instructions clear and concise. Include important cooking techniques and temperatures where necessary. Consider dietary restrictions when mentioned in the prompt.',
+          'Keep instructions clear and concise. Include important cooking techniques and temperatures where necessary. Consider dietary restrictions when mentioned in the prompt. Answer in the language of the user.',
       },
       {
         role: 'user',
