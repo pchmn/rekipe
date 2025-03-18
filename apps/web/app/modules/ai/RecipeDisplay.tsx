@@ -9,8 +9,13 @@ import {
 import { ChefHat, Clock, Lightbulb, Users } from 'lucide-react';
 import type { Recipe } from '~/routes/api+/chat';
 
+type DeepPartial<T> = T extends object
+  ? {
+      [P in keyof T]?: DeepPartial<T[P]>;
+    }
+  : T;
 interface RecipeDisplayProps {
-  recipe: Partial<Recipe>;
+  recipe: DeepPartial<Recipe>;
 }
 
 export function RecipeDisplay({ recipe }: RecipeDisplayProps) {
@@ -20,7 +25,7 @@ export function RecipeDisplay({ recipe }: RecipeDisplayProps) {
         <CardHeader>
           <div className='flex justify-between items-start'>
             <div>
-              <CardTitle className='text-2xl'>{recipe.recipe}</CardTitle>
+              <CardTitle className='text-2xl'>{recipe.title}</CardTitle>
               <CardDescription className='mt-2'>
                 {recipe.description}
               </CardDescription>
@@ -55,11 +60,15 @@ export function RecipeDisplay({ recipe }: RecipeDisplayProps) {
             <div>
               <h3 className='text-lg font-medium mb-3'>Ingredients</h3>
               <ul className='space-y-2'>
-                {recipe.ingredients?.map((ingredient, index) => (
-                  <li key={index} className='flex items-start'>
+                {recipe.ingredients?.map((ingredient) => (
+                  <li
+                    key={JSON.stringify(ingredient)}
+                    className='flex items-start'
+                  >
                     <span className='mr-2'>•</span>
                     <span>
-                      {ingredient.quantity} {ingredient.unit} {ingredient.name}
+                      {ingredient?.quantity} {ingredient?.unit}{' '}
+                      {ingredient?.name}
                     </span>
                   </li>
                 ))}
@@ -68,8 +77,8 @@ export function RecipeDisplay({ recipe }: RecipeDisplayProps) {
             <div>
               <h3 className='text-lg font-medium mb-3'>Instructions</h3>
               <ol className='space-y-3 list-decimal list-inside'>
-                {recipe.steps?.map((step, index) => (
-                  <li key={index} className='pl-1'>
+                {recipe.steps?.map((step) => (
+                  <li key={JSON.stringify(step)} className='pl-1'>
                     {step}
                   </li>
                 ))}

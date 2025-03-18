@@ -7,19 +7,55 @@ import { type Recipe, recipeSchema } from '~/routes/api+/chat';
 import { AiInput } from './AiInput';
 import { RecipeDisplay } from './RecipeDisplay';
 
+type UserMessage = {
+  role: 'user';
+  content: string;
+};
+type AssistantMessage = {
+  role: 'assistant';
+  content: Recipe | string;
+};
+type ChatMessage = UserMessage | AssistantMessage;
+
+function stringifyMessages(messages: ChatMessage[]) {
+  return messages.map((message) => ({
+    role: message.role,
+    content:
+      typeof message.content === 'object'
+        ? JSON.stringify(message.content)
+        : message.content,
+  }));
+}
+
 export function ChatUi() {
   const [prompt, setPrompt] = useState('');
+  const [messages, setMessages] = useState<ChatMessage[]>([]);
+
   const { submit, isLoading, object, stop, error } =
     experimental_useObject<Recipe>({
       api: '/api/chat',
       schema: recipeSchema,
+      onFinish: ({ object }) => {
+        if (object) {
+          console.log('previousMessages', messages);
+          setMessages((prevMessages) => [
+            ...prevMessages,
+            { role: 'assistant', content: object },
+          ]);
+        }
+      },
     });
 
   return (
     <Form
       onSubmit={(e) => {
         console.log('submit', prompt);
-        submit(prompt);
+        submit({ previousMessages: stringifyMessages(messages), prompt });
+        setMessages((prevMessages) => [
+          ...prevMessages,
+          { role: 'user', content: prompt },
+        ]);
+        setPrompt('');
       }}
     >
       <Flex direction='col' gap='xl' justify='center' align='center' flex='1'>
@@ -29,6 +65,12 @@ export function ChatUi() {
           onChange={(e) => setPrompt(e.target.value)}
           className='max-w-2xl'
         />
+
+        {messages
+          .filter((message) => message.role === 'user')
+          .map((message) => (
+            <div key={JSON.stringify(message)}>{message.content}</div>
+          ))}
 
         {error && (
           <div className='p-4 bg-red-100 text-red-800 rounded-lg'>

@@ -4,32 +4,37 @@ import type { ActionFunctionArgs } from 'react-router';
 import { z } from 'zod';
 
 export const recipeSchema = z.object({
-  ingredients: z.array(
-    z.object({
-      name: z.string(),
-      quantity: z.string(),
-      unit: z.string().describe('Use metric system'),
-    }),
-  ),
+  title: z.string().describe('The title of the recipe'),
   description: z
     .string()
     .describe('A short (1-2 sentences) description of the recipe'),
-  steps: z.array(z.string()).describe('The steps to prepare the recipe'),
+  servingSize: z.string().describe('The serving size of the recipe'),
   cookingTime: z.string().describe('The cooking time of the recipe'),
+  ingredients: z.array(
+    z.object({
+      name: z.string(),
+      quantity: z.number(),
+      unit: z.string().optional().describe('Use metric system'),
+    }),
+  ),
+  steps: z
+    .array(z.string())
+    .describe(
+      'The steps to prepare the recipe. Include clear indications (exact temperature, time, etc.) if relevant',
+    ),
   difficulty: z
     .enum(['easy', 'medium', 'hard'])
     .describe('The difficulty level of the recipe'),
-  servingSize: z.string().describe('The serving size of the recipe'),
-  tips: z.string().describe('Any relevant tips or variations'),
-  variations: z.string().describe('Any relevant tips or variations'),
-  recipe: z.string().describe('The recipe'),
+  tips: z.string().optional().describe('Any relevant tips'),
+  variations: z.string().optional().describe('Any relevant variations'),
 });
 
 export type Recipe = z.infer<typeof recipeSchema>;
 
 export async function action({ request }: ActionFunctionArgs) {
-  const prompt = await request.json();
+  const { previousMessages, prompt } = await request.json();
   // const prompt = formData.get('prompt');
+  console.log('previousMessages', previousMessages);
   console.log('prompt', prompt);
 
   const result = streamObject({
@@ -46,14 +51,10 @@ export async function action({ request }: ActionFunctionArgs) {
           '5. Any relevant tips or variations\n\n' +
           'Keep instructions clear and concise. Include important cooking techniques and temperatures where necessary. Consider dietary restrictions when mentioned in the prompt. Answer in the language of the user.',
       },
+      ...previousMessages,
       {
         role: 'user',
-        content: [
-          {
-            type: 'text',
-            text: prompt as string,
-          },
-        ],
+        content: prompt,
       },
     ],
     schema: recipeSchema,
