@@ -6,7 +6,15 @@ import {
   CardHeader,
   CardTitle,
 } from '@rekipe/ui/card';
-import { ChefHat, Clock, Lightbulb, Users } from 'lucide-react';
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@rekipe/ui/tabs';
+import {
+  ChefHat,
+  Clock,
+  HistoryIcon,
+  LightbulbIcon,
+  SparklesIcon,
+  Users,
+} from 'lucide-react';
 import type { Recipe } from '~/routes/api+/chat';
 
 type DeepPartial<T> = T extends object
@@ -19,96 +27,130 @@ interface RecipeDisplayProps {
 }
 
 export function RecipeDisplay({ recipe }: RecipeDisplayProps) {
+  const getDifficultyColor = (difficulty?: string) => {
+    switch (difficulty) {
+      case 'easy':
+        return 'bg-green-500';
+      case 'medium':
+        return 'bg-yellow-500';
+      case 'hard':
+        return 'bg-red-500';
+      default:
+        return 'bg-gray-500';
+    }
+  };
+
   return (
-    <div className='space-y-6'>
-      <Card>
-        <CardHeader>
-          <div className='flex justify-between items-start'>
-            <div>
-              <CardTitle className='text-2xl'>{recipe.title}</CardTitle>
-              <CardDescription className='mt-2'>
-                {recipe.description}
-              </CardDescription>
-            </div>
-            <Badge
-              variant={
-                recipe.difficulty === 'easy'
-                  ? 'outline'
-                  : recipe.difficulty === 'medium'
-                    ? 'secondary'
-                    : 'destructive'
-              }
-            >
-              {recipe.difficulty &&
-                recipe.difficulty.charAt(0).toUpperCase() +
-                  recipe.difficulty.slice(1)}
-            </Badge>
+    <Card className='max-w-3xl mx-auto'>
+      <CardHeader className='pb-4'>
+        <div className='flex justify-between items-start'>
+          <div>
+            <CardTitle className='text-2xl md:text-3xl font-bold'>
+              {recipe.title}
+            </CardTitle>
+            <CardDescription className='mt-2 text-base'>
+              {recipe.description}
+            </CardDescription>
           </div>
-          <div className='flex gap-4 mt-2'>
-            <div className='flex items-center gap-1 text-sm text-muted-foreground'>
-              <Clock className='h-4 w-4' />
-              {recipe.cookingTime}
-            </div>
-            <div className='flex items-center gap-1 text-sm text-muted-foreground'>
-              <Users className='h-4 w-4' />
-              {recipe.servingSize}
-            </div>
-          </div>
+          <Badge
+            className={`${getDifficultyColor(recipe.difficulty)} text-white capitalize`}
+          >
+            {recipe.difficulty}
+          </Badge>
+        </div>
 
-          <div className='bg-muted p-4 rounded-lg'>
-            <p>{recipe.changes}</p>
+        <div className='flex flex-wrap gap-4 mt-4'>
+          <div className='flex items-center gap-2'>
+            <Clock className='h-5 w-5 text-muted-foreground' />
+            <span>{recipe.cookingTime}</span>
           </div>
-        </CardHeader>
-        <CardContent>
-          <div className='grid md:grid-cols-2 gap-6'>
-            <div>
-              <h3 className='text-lg font-medium mb-3'>Ingredients</h3>
-              <ul className='space-y-2'>
-                {recipe.ingredients?.map((ingredient) => (
-                  <li
-                    key={JSON.stringify(ingredient)}
-                    className='flex items-start'
-                  >
-                    <span className='mr-2'>•</span>
-                    <span>
-                      {ingredient?.quantity} {ingredient?.unit}{' '}
-                      {ingredient?.name}
-                    </span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-            <div>
-              <h3 className='text-lg font-medium mb-3'>Instructions</h3>
-              <ol className='space-y-3 list-decimal list-inside'>
-                {recipe.steps?.map((step) => (
-                  <li key={JSON.stringify(step)} className='pl-1'>
-                    {step}
-                  </li>
-                ))}
-              </ol>
+          <div className='flex items-center gap-2'>
+            <Users className='h-5 w-5 text-muted-foreground' />
+            <div className='flex items-center'>
+              <span className='mx-2'>{recipe.servingSize}</span>
             </div>
           </div>
+          <div className='flex items-center gap-2'>
+            <ChefHat className='h-5 w-5 text-muted-foreground' />
+            <span className='capitalize'>{recipe.difficulty}</span>
+          </div>
+        </div>
+      </CardHeader>
 
-          <div className='mt-6 space-y-4'>
-            <div className='bg-muted p-4 rounded-lg'>
-              <div className='flex items-center gap-2 mb-2'>
-                <Lightbulb className='h-5 w-5 text-amber-500' />
-                <h3 className='font-medium'>Tips</h3>
+      <CardContent>
+        <Tabs defaultValue='ingredients' className='mt-2'>
+          <TabsList className='grid w-full grid-cols-2'>
+            <TabsTrigger value='ingredients'>Ingredients</TabsTrigger>
+            <TabsTrigger value='instructions'>Instructions</TabsTrigger>
+          </TabsList>
+
+          <TabsContent value='ingredients' className='pt-4'>
+            <ul className='space-y-3'>
+              {recipe.ingredients?.map((ingredient, index) => (
+                <li
+                  key={index}
+                  className='flex items-center gap-2 pb-2 border-b'
+                >
+                  <span className='font-medium min-w-[80px]'>
+                    {ingredient?.quantity} {ingredient?.unit || ''}
+                  </span>
+                  <span>{ingredient?.name}</span>
+                </li>
+              ))}
+            </ul>
+          </TabsContent>
+
+          <TabsContent value='instructions' className='pt-4'>
+            <ol className='space-y-5'>
+              {recipe.steps?.map((step, index) => (
+                <li
+                  key={index}
+                  className='relative pl-8 pb-2 flex items-center gap-2'
+                >
+                  <div className='absolute left-0 top-1 flex items-center justify-center w-6 h-6 rounded-full bg-secondary text-secondary-foreground text-sm font-medium'>
+                    {index + 1}
+                  </div>
+                  <span>{step}</span>
+                </li>
+              ))}
+            </ol>
+          </TabsContent>
+        </Tabs>
+
+        {(recipe.tips || recipe.variations || recipe.changes) && (
+          <div className='mt-8 space-y-4 border-t pt-4'>
+            {recipe.tips && (
+              <div className='flex gap-2'>
+                <LightbulbIcon className='h-5 w-5 text-amber-500 flex-shrink-0 mt-1' />
+                <div>
+                  <h3 className='font-medium'>Tips</h3>
+                  <p className='text-muted-foreground'>{recipe.tips}</p>
+                </div>
               </div>
-              <p>{recipe.tips}</p>
-            </div>
+            )}
 
-            <div className='bg-muted p-4 rounded-lg'>
-              <div className='flex items-center gap-2 mb-2'>
-                <ChefHat className='h-5 w-5 text-indigo-500' />
-                <h3 className='font-medium'>Variations</h3>
+            {recipe.variations && (
+              <div className='flex gap-2'>
+                <SparklesIcon className='h-5 w-5 text-purple-500 flex-shrink-0 mt-1' />
+                <div>
+                  <h3 className='font-medium'>Variations</h3>
+                  <p className='text-muted-foreground'>{recipe.variations}</p>
+                </div>
               </div>
-              <p>{recipe.variations}</p>
-            </div>
+            )}
+
+            {recipe.changes && (
+              <div className='flex gap-2'>
+                <HistoryIcon className='h-5 w-5 text-blue-500 flex-shrink-0 mt-1' />
+                <div>
+                  <h3 className='font-medium'>Changes</h3>
+                  <p className='text-muted-foreground'>{recipe.changes}</p>
+                </div>
+              </div>
+            )}
           </div>
-        </CardContent>
-      </Card>
-    </div>
+        )}
+      </CardContent>
+    </Card>
   );
 }

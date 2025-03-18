@@ -54,5 +54,8 @@
     "./tailwind.config": "./tailwind.config.ts",
     "./style.css": "./src/style.css",
     "./postcss": "./postcss.config.js"
+  },
+  "dependencies": {
+    "@radix-ui/react-tabs": "^1.1.3"
   }
 }
