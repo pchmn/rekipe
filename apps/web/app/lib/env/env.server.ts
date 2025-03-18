@@ -19,6 +19,7 @@ const envSchema = z.object({
     SMTP_PASSWORD: z.string().trim().optional(),
     AWS_ACCESS_KEY_ID: z.string().trim().optional(),
     AWS_SECRET_ACCESS_KEY: z.string().trim().optional(),
+    GOOGLE_GENERATIVE_AI_API_KEY: z.string().trim(),
   }),
 });
 // .refine(

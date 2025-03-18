@@ -103,3 +103,4 @@ jobs:
             SUPABASE_SERVICE_ROLE_KEY=${{ secrets.PREVIEW_SUPABASE_SERVICE_ROLE_KEY }}
             SESSION_SECRET=${{ secrets.PREVIEW_SESSION_SECRET }}
             SITE_URL=https://rekipe-pr-${{ github.event.number }}.46-202-134-59.sslip.io
+            GOOGLE_GENERATIVE_AI_API_KEY=${{ secrets.GOOGLE_GENERATIVE_AI_API_KEY }}

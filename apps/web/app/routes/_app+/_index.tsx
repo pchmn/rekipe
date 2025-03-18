@@ -3,6 +3,7 @@ import { Card, CardContent } from '@rekipe/ui/card';
 import { Flex } from '@rekipe/ui/flex';
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router';
+import { ChatUi } from '~/modules/ai/ChatUi';
 import { useCurrentUser } from '~/modules/auth/useCurrentUser';
 
 export function meta() {
@@ -20,7 +21,7 @@ export default function Home() {
   return (
     <Flex direction='col' gap='md' flex='1'>
       {currentUser.is_anonymous && (
-        <Flex justify='center' align='center' flex='1'>
+        <Flex justify='center' align='center' flex='1' className='mb-4'>
           <Card className='shadow-none'>
             <CardContent className='p-2 pl-3 inline-flex gap-2 items-center'>
               <p className='text-xs text-muted-foreground'>
@@ -35,6 +36,8 @@ export default function Home() {
           </Card>
         </Flex>
       )}
+
+      <ChatUi />
     </Flex>
   );
 }
